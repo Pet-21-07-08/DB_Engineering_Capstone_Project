@@ -1,13 +1,14 @@
--- Minimal, limpio y corregido (MySQL 8.0+). Motor InnoDB y utf8mb4.
+-- InnoDB Engine and Character Set utf8mb4.
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
--- Opcional: crea un schema
+-- Create an Schema.
+
 -- CREATE SCHEMA IF NOT EXISTS little_lemon DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 -- USE little_lemon;
 
 -- =======================================================
--- Tablas de catálogos pequeños
+-- Small Catalog Tables
 -- =======================================================
 CREATE TABLE IF NOT EXISTS StaffRoles (
   RoleID      INT AUTO_INCREMENT PRIMARY KEY,
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS MenuCategories (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- =======================================================
--- Nucleares
+-- Nuclear Tables
 -- =======================================================
 CREATE TABLE IF NOT EXISTS Staff (
   StaffID         INT AUTO_INCREMENT PRIMARY KEY,
@@ -129,7 +130,7 @@ CREATE TABLE IF NOT EXISTS OrderDeliveryStatus (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- =======================================================
--- Índices útiles (no exagerados)
+--  Useful Indexes 
 -- =======================================================
 CREATE INDEX idx_bookings_customer ON Bookings(CustomerID);
 CREATE INDEX idx_bookings_staff ON Bookings(StaffID);
